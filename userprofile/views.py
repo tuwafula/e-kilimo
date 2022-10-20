@@ -2,7 +2,6 @@ from rest_framework import status
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from user.serializers import FarmerRegistrationSerializer, TenderRegistrationSerializer, InputRegistrationSerializer, InvestorRegistrationSerializer
 from userprofile.models import FarmerProfile, InvestorProfile, InputProfile, TenderProfile
 from user.models import User
@@ -11,7 +10,7 @@ from user.models import User
 class UserProfileView(RetrieveAPIView):
 
     permission_classes = (IsAuthenticated,)
-    authentication_class = JSONWebTokenAuthentication
+    authentication_class = ''
 
     def get(self, request):
         try:
